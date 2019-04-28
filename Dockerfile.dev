@@ -1,0 +1,17 @@
+###  Start code
+###use as existing docker image as base
+FROM node:alpine
+
+WORKDIR '/app'
+
+## download and install dependency
+
+COPY package.json .
+RUN npm install
+COPY . .
+
+## Tell the image what to do when it starts as a container
+CMD ["npm", "run", "start"]
+
+###  End code
+
